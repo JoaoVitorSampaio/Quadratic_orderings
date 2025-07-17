@@ -11,7 +11,7 @@ O programa:
 - Mede e exibe o tempo de execução de cada um.
 - Grava os resultados ordenados em arquivos de saída separados.
 
-Ideal para fins didáticos em disciplinas de **Estrutura de Dados** ou **Algoritmos e Programação**.
+Ideal para fins didáticos em disciplinas de **Estrutura de Dados I** ou **Algoritmos e Programação**.
 
 ---
 
@@ -19,41 +19,44 @@ Ideal para fins didáticos em disciplinas de **Estrutura de Dados** ou **Algorit
 
 ```
 projeto_ordenacao/
-├── include/             # Arquivos de cabeçalho (.h)
+├── include/               # Arquivos de cabeçalho (.h)
 │   ├── insertion_sort.h
 │   └── selection_sort.h
-├── src/                 # Implementações dos algoritmos e main
+├── src/                   # Implementações dos algoritmos e main
 │   ├── insertion_sort.c
 │   ├── selection_sort.c
 │   └── main.c
-├── instancias_num/      # Arquivos de entrada (.in)
+├── instancias_num/        # Arquivos de entrada (.in)
 │   ├── num.10000.1.in
 │   └── ...
-├── instancias_output/   # Arquivos de saída gerados
+├── instancias_output/     # Arquivos de saída gerados
 │   ├── sorted_numbers1.out  → saída do Selection Sort
 │   └── sorted_numbers2.out  → saída do Insertion Sort
-├── bin/                 # Executável final (criado via make)
-├── obj/                 # Objetos de compilação (.o)
-└── Makefile             # Script de compilação
+├── bin/                   # Executável final (criado via make)
+├── obj/                   # Objetos de compilação (.o)
+└── Makefile               # Script de compilação
 ```
 
 ---
 
 ## ⚙️ Como Compilar e Executar
 
-### 1. Compilação
+### 1. Compilar
 
-Compile todo o projeto com:
+Abra o terminal na raiz do projeto e digite:
 
 ```bash
 make
 ```
 
-O executável será gerado na pasta `bin/` com o nome `programa`.
+Isso irá:
 
-### 2. Execução
+- Criar as pastas `bin/`, `obj/` e `instancias_output/` se não existirem.
+- Compilar os arquivos `.c` e gerar o executável `bin/programa`.
 
-Rode o programa com:
+### 2. Executar
+
+Após a compilação, rode:
 
 ```bash
 ./bin/programa
@@ -61,9 +64,10 @@ Rode o programa com:
 
 O programa irá:
 
-- Ler os números do arquivo definido em `main.c`.
-- Executar e comparar o desempenho do **Selection Sort** e do **Insertion Sort**.
-- Gerar os arquivos de saída com os valores ordenados.
+- Ler os números de um arquivo de entrada definido em `main.c`.
+- Ordenar os dados com ambos os algoritmos.
+- Exibir o tempo de execução de cada um.
+- Salvar os resultados em arquivos `.out`.
 
 ---
 
@@ -75,7 +79,7 @@ Tempo de execucao do insertion_sort: 0.033000000 segundos
 Ordenacao concluida!
 ```
 
-⏱️ Os tempos podem variar de acordo com o tamanho da instância e o desempenho da máquina, mas tendem a ser similares para vetores pequenos.
+📌 Os tempos variam conforme o tamanho do vetor e o desempenho da máquina.
 
 ---
 
@@ -83,15 +87,15 @@ Ordenacao concluida!
 
 ### 🔹 Selection Sort
 
-- Percorre o vetor procurando o menor elemento e o posiciona corretamente.
+- Encontra o menor elemento e o posiciona no início.
 - Troca no máximo **(n - 1)** vezes.
 - **Complexidade:** O(n²)
-- **Estável?** ❌ Não (pode alterar a ordem de elementos iguais)
+- **Estável?** ❌ Não (pode mudar a ordem relativa de elementos iguais)
 
 ### 🔹 Insertion Sort
 
-- Insere cada elemento na posição correta da parte já ordenada do vetor.
-- Mais eficiente para listas pequenas ou quase ordenadas.
+- Insere cada elemento na posição correta da parte já ordenada.
+- Eficiente para listas pequenas ou quase ordenadas.
 - **Complexidade:** O(n²)
 - **Estável?** ✅ Sim
 
@@ -99,9 +103,10 @@ Ordenacao concluida!
 
 ## 🧪 Observações
 
-- As instâncias de teste devem estar no diretório `instancias_num/` no formato `.in`.
+- Os arquivos de entrada devem estar na pasta `instancias_num/`, no formato `.in`.
 - Os arquivos de saída serão salvos automaticamente em `instancias_output/`.
-- O código é modular, com separação clara entre **headers**, **implementações** e a **função principal**.
+- O código é modular, com separação clara entre **headers**, **implementações** e **função principal**.
+- Você pode editar o nome do arquivo de entrada diretamente no `main.c`.
 
 ---
 
@@ -109,4 +114,4 @@ Ordenacao concluida!
 
 - Compilador `gcc`
 - `make` instalado
-- Sistema operacional: Linux, macOS ou Windows (com ajuste de comandos no Makefile)
+- Sistema operacional compatível com Unix (Linux/macOS/Git Bash/WSL no Windows)
